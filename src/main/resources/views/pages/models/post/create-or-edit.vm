@@ -1,0 +1,28 @@
+#parse("/views/layouts/full.vm")
+#set($templatePageName = "Edit post")
+#@layoutFull()
+<div class="container container--flex">
+    <form class="post-form form" method="post" action="">
+        <input type="hidden" name="_csrf" value="${csrf}">
+        <input type="hidden" name="title">
+        <input type="hidden" name="content">
+        <div class="form__header">
+            <h2 class="form__heading form__control" contenteditable tabindex="1">Title goes here...</h2>
+        </div>
+        <div class="form__row">
+            <p class="post-form__content form__control" contenteditable tabindex="2">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Architecto assumenda commodi consequuntur corporis, culpa cumque doloremque ducimus fugit id,
+                necessitatibus, nemo saepe tenetur ullam velit voluptas? Corporis cumque laudantium perspiciatis provident
+                voluptatem? Ab aliquid ea in nisi non quod saepe, voluptate voluptatibus. Animi, libero, sed? Consequatur
+                dolore error, illo incidunt labore quam quod?<br><br>Accusamus alias architecto aspernatur aut blanditiis
+                consectetur culpa distinctio dolor dolores doloribus eius, eligendi et expedita fuga fugiat id illum impedit
+                incidunt inventore iusto maiores molestiae necessitatibus neque nisi non nostrum omnis optio placeat
+                quibusdam quidem quod, similique sint sit ut voluptate voluptates voluptatum. Illo, pariatur temporibus!</p>
+        </div>
+        <div class="post-form__footer form__footer">
+            <a class="post-form__button button button--cancel" href="/">Cancel</a>
+            <button class="post-form__button button button--primary">Post</button>
+        </div>
+    </form>
+</div>
+#end

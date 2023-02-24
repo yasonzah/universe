@@ -1,0 +1,92 @@
+#parse("/views/layouts/full.vm")
+#set($templatePageName = "Post")
+#@layoutFull()
+<div class="container">
+    <div class="post-wrapper">
+        <article class="post">
+            <div class="post__header">
+                <div class="post__info">
+                    <img class="post__avatar" src="/images/panda.png" alt="">
+                    <div class="post__about">
+                        <div class="post__author">Name Surname</div>
+                        <div class="post__date">February 14, 2023</div>
+                    </div>
+                </div>
+                <h1 class="post__heading">Post</h1>
+            </div>
+            <p class="post__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos earum explicabo
+                illum inventore ipsa nemo obcaecati possimus? Ad, cum dolores iste quia quod ut? Asperiores eius inventore
+                laudantium libero natus quasi vel vitae! Aliquam amet at consequuntur deserunt dignissimos, distinctio dolore
+                dolores doloribus earum ex exercitationem expedita hic illo laudantium maiores modi molestias nobis optio
+                perferendis quae quibusdam reiciendis sed soluta vel velit veniam vitae. Earum eligendi iure nesciunt pariatur
+                ratione. Atque expedita modi nulla reprehenderit voluptatem. Culpa debitis eius eum expedita explicabo natus
+                officia quidem recusandae! Autem dolorem eaque exercitationem expedita magni non numquam omnis repellat saepe
+                voluptates, voluptatum!<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos earum explicabo
+                illum inventore ipsa nemo obcaecati possimus? Ad, cum dolores iste quia quod ut? Asperiores eius inventore
+                laudantium libero natus quasi vel vitae! Aliquam amet at consequuntur deserunt dignissimos, distinctio dolore
+                dolores doloribus earum ex exercitationem expedita hic illo laudantium maiores modi molestias nobis optio
+                perferendis quae quibusdam reiciendis sed soluta vel velit veniam vitae. Earum eligendi iure nesciunt pariatur
+                ratione. Atque expedita modi nulla reprehenderit voluptatem. Culpa debitis eius eum expedita explicabo natus
+                officia quidem recusandae! Autem dolorem eaque exercitationem expedita magni non numquam omnis repellat saepe
+                voluptates, voluptatum!<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos earum explicabo
+                illum inventore ipsa nemo obcaecati possimus? Ad, cum dolores iste quia quod ut? Asperiores eius inventore
+                laudantium libero natus quasi vel vitae! Aliquam amet at consequuntur deserunt dignissimos, distinctio dolore
+                dolores doloribus earum ex exercitationem expedita hic illo laudantium maiores modi molestias nobis optio
+                perferendis quae quibusdam reiciendis sed soluta vel velit veniam vitae. Earum eligendi iure nesciunt pariatur
+                ratione. Atque expedita modi nulla reprehenderit voluptatem. Culpa debitis eius eum expedita explicabo natus
+                officia quidem recusandae! Autem dolorem eaque exercitationem expedita magni non numquam omnis repellat saepe
+                voluptates, voluptatum!</p>
+            <div class="post__footer">
+                <button class="post__button button">Likes [10]</button>
+                <button class="post__button button">Comments [2]</button>
+            </div>
+        </article>
+        <div class="comments">
+            <div class="comment">
+                <div class="comment__header">
+                    <img class="comment__avatar" src="/images/anubarak.jpg" alt="Avatar">
+                    <div class="comment__interlocutors">
+                        <span class="comment__from">Name Surname</span>
+                    </div>
+                </div>
+                <p class="comment__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, sunt.</p>
+                <div class="comment__footer">
+                    <button class="comment__button button">Like</button>
+                    <button class="comment__button button">Reply</button>
+                    <div class="comment__date">February 14, 2023</div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment__header">
+                    <img class="comment__avatar" src="/images/panda.png" alt="Avatar">
+                    <div class="comment__interlocutors">
+                        <span class="comment__from">Name Surname</span> replays to <a class="comment__to" href="#">Name Surname</a>
+                    </div>
+                </div>
+                <p class="comment__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, sunt.</p>
+                <div class="comment__footer">
+                    <button class="comment__button button">Like</button>
+                    <button class="comment__button button">Reply</button>
+                    <div class="comment__date">February 14, 2023</div>
+                </div>
+            </div>
+            <form class="comment-form comment" method="post" action="">
+                <div class="comment__header">
+                    <img class="comment__avatar" src="/images/anubarak.jpg" alt="Avatar">
+                    <div class="comment__interlocutors">
+                        <span class="comment__from">Name Surname</span> replays to <a class="comment__to" href="#">Name Surname</a>
+                    </div>
+                    <button class="comment-form__reset-button button button--cancel" type="button"><i class="comment-form__xmark fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="comment__description">
+                    <textarea class="comment-form__textarea form__control" name="comment"></textarea>
+                </div>
+                <div class="comment__footer">
+                    <button class="comment-form__button button button--primary">Send</button>
+                    <button class="comment-form__button button button--cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+#end

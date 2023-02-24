@@ -1,0 +1,89 @@
+#parse("/views/layouts/full.vm")
+#set($templatePageName = "Home")
+#@layoutFull()
+<div class="hero">
+    <h1 class="hero__heading">Create a World!</h1>
+    <p class="hero__description">Share thoughts, impressions and experience with your audience.</p>
+    <a class="hero__button button button--primary" href="/sign-up">Sign up</a>
+</div>
+<div class="container">
+    <p class="example">${errorBags.get("home")}</p>
+    <div class="cards">
+        <div class="card">
+            <div class="card__header">
+                <h2 class="card__heading">Post 1</h2>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur
+                cumque dicta dolore ducimus ea error eveniet ex hic mollitia officia quaerat, sapiente temporibus
+                voluptates!</p>
+            <a class="card__button button button--primary" href="">Read more</a>
+            <div class="card__footer">
+                <img class="card__avatar" src="/images/panda.png" alt="Avatar">
+                <p class="card__author">Chinese Panda</p>
+                <p class="card__date">February 14, 2023</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <h2 class="card__heading">Post 2</h2>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur
+                cumque dicta dolore ducimus ea error eveniet ex hic mollitia officia quaerat, sapiente temporibus
+                voluptates!</p>
+            <a class="card__button button button--primary" href="">Read more</a>
+            <div class="card__footer">
+                <img class="card__avatar" src="/images/panda.png" alt="Avatar">
+                <p class="card__author">Chinese Panda</p>
+                <p class="card__date">February 14, 2023</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <h2 class="card__heading">Post 3</h2>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur
+                cumque dicta dolore ducimus ea error eveniet ex hic mollitia officia quaerat, sapiente temporibus
+                voluptates!</p>
+            <a class="card__button button button--primary" href="">Read more</a>
+            <div class="card__footer">
+                <img class="card__avatar" src="/images/panda.png" alt="Avatar">
+                <p class="card__author">Chinese Panda</p>
+                <p class="card__date">February 14, 2023</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <h2 class="card__heading">Post 4</h2>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur
+                cumque dicta dolore ducimus ea error eveniet ex hic mollitia officia quaerat, sapiente temporibus
+                voluptates!</p>
+            <a class="card__button button button--primary" href="">Read more</a>
+            <div class="card__footer">
+                <img class="card__avatar" src="/images/panda.png" alt="Avatar">
+                <p class="card__author">Chinese Panda</p>
+                <p class="card__date">February 14, 2023</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <a class="pagination__button pagination__button--left" href="">&lt;</a>
+        <a class="pagination__button" href="">1</a>
+        <a class="pagination__button pagination__button--ellipsis" href="">...</a>
+
+        <a class="pagination__button" href="">4</a>
+        <a class="pagination__button" href="">5</a>
+        <a class="pagination__button pagination__button--active" href="">6</a>
+        <a class="pagination__button" href="">7</a>
+        <a class="pagination__button" href="">8</a>
+
+        <a class="pagination__button pagination__button--ellipsis" href="">...</a>
+        <a class="pagination__button" href="">11</a>
+        <a class="pagination__button pagination__button--right" href="">&gt;</a>
+    </div>
+</div>
+#end

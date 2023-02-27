@@ -26,13 +26,23 @@ function isValid(input) {
     return classList.contains(classList[0] + "--success");
 }
 
+function hasFieldDataFromServer(errorBagName, fieldName) {
+    return serverData["errorBags"] !== undefined
+        && serverData["errorBags"][errorBagName] !== undefined
+        && serverData["errorBags"][errorBagName][fieldName] !== undefined;
+}
+
+function getFieldOldValue(errorBagName, fieldName) {
+    return serverData["errorBags"][errorBagName][fieldName]["oldValue"];
+}
+
 function applyValidation(form, fieldName, validator) {
     const input = form[fieldName];
     const feedback = input.parentNode.querySelector(".form__feedback");
     const classList = input.parentNode.classList;
     const errorBagName = form.classList[0].replace(/-form$/, "");
 
-    if (serverData["errorBags"] !== undefined && serverData["errorBags"][errorBagName] !== undefined && serverData["errorBags"][errorBagName][fieldName] !== undefined) {
+    if (hasFieldDataFromServer(errorBagName, fieldName)) {
         input.value = serverData["errorBags"][errorBagName][fieldName]["oldValue"];
         feedback.innerText = serverData["errorBags"][errorBagName][fieldName]["errorMessage"];
 
@@ -52,8 +62,10 @@ function applyValidation(form, fieldName, validator) {
     });
 
     input.addEventListener("blur", () => {
-        if ((input.getAttribute("type") === "password" && serverData["errorBags"] !== undefined && (serverData["errorBags"][errorBagName][fieldName] === undefined || input.value !== serverData["errorBags"][errorBagName][fieldName]["oldValue"]))
-            || (!classList.contains(classList[0] + "--error") && !classList.contains(classList[0] + "--success"))) {
+        if ((input.getAttribute("type") === "password" && serverData["errorBags"] !== undefined
+                && (serverData["errorBags"][errorBagName][fieldName] === undefined
+                    || input.value !== getFieldOldValue(errorBagName, fieldName)))
+            || (!hasFeedback(input))) {
             validate(input, validator);
         }
     });

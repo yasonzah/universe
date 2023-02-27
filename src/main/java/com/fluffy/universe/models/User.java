@@ -1,16 +1,14 @@
 package com.fluffy.universe.models;
 
-import java.time.LocalDate;
-
 public class User {
     private Integer id;
     private Integer roleId;
     private String firstName;
     private String lastName;
-    private Gender gender;
+    private String gender;
     private String email;
     private String password;
-    private LocalDate birthday;
+    private String birthday;
     private String address;
     private String website;
     private String resetPasswordToken;
@@ -47,11 +45,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -71,11 +69,11 @@ public class User {
         this.password = password;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

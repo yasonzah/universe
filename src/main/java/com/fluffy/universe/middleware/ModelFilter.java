@@ -3,6 +3,7 @@ package com.fluffy.universe.middleware;
 import com.fluffy.universe.utils.ModelKey;
 import com.fluffy.universe.utils.ServerData;
 import com.fluffy.universe.utils.SessionKey;
+import com.fluffy.universe.utils.VelocityHelper;
 import io.javalin.http.Context;
 
 import java.util.HashMap;
@@ -26,5 +27,9 @@ public final class ModelFilter {
         model.put(ModelKey.CSRF, context.sessionAttribute(SessionKey.CSRF));
         model.put(ModelKey.USER, context.sessionAttribute(SessionKey.USER));
         model.put(ModelKey.SERVER_DATA, serverData);
+
+        // Preloaded classes
+        model.put("Math", Math.class);
+        model.put("VelocityHelper", VelocityHelper.class);
     }
 }

@@ -17,5 +17,11 @@ public abstract class Controller {
         SessionUtils.getCurrentServerData(context).clear();
     }
 
+    public void disableCaching(Context context) {
+        context.res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        context.res.setHeader("Pragma", "no-cache");
+        context.res.setHeader("Expires", "0");
+    }
+
     public abstract void registerRoutes(Javalin application);
 }

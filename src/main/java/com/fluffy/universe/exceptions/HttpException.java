@@ -1,14 +1,21 @@
 package com.fluffy.universe.exceptions;
 
-public class HttpException extends RuntimeException {
-    private final int code;
+import io.javalin.http.HttpCode;
 
-    public HttpException(int code, String message) {
+public class HttpException extends RuntimeException {
+    private final HttpCode httpCode;
+
+    public HttpException(HttpCode code, String message) {
         super(message);
-        this.code = code;
+        this.httpCode = code;
     }
 
-    public HttpException(int code) {
-        this.code = code;
+    public HttpException(HttpCode code) {
+        super(code.getMessage());
+        this.httpCode = code;
+    }
+
+    public HttpCode getHttpCode() {
+        return httpCode;
     }
 }

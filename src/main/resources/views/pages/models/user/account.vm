@@ -1,12 +1,13 @@
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Account")
 #@layoutFull()
-<div class="container">
-    <form class="account-form form" method="post" action="">
+<div class="container container--flex">
+    <form class="account-form form" method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="_csrf" value="${csrf}">
+        <input type="hidden" name="_method" value="PUT">
         <div class="account-form__header form__header">
             <h1 class="account-form__heading form__heading">Account</h1>
-            <img class="account-form__avatar" src="images/panda.png" alt="Avatar">
+            <img class="account-form__avatar" src="images/user.png" alt="Avatar">
         </div>
         <div class="form__row form__row--with-columns">
             <div class="form__column">
@@ -29,24 +30,24 @@
             <label class="form__label" for="account__gender">Gender</label>
             <select class="form__control" id="account__gender" name="gender" tabindex="4">
                 <option selected value=""></option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male" #if($user.gender == "m")selected#end>Male</option>
+                <option value="female" #if($user.gender == "f")selected#end>Female</option>
             </select>
             <p class="form__feedback"></p>
         </div>
         <div class="form__row">
             <label class="form__label" for="account__birthday">Birthday</label>
-            <input class="form__control" id="account__birthday" type="date" name="birthday" tabindex="5">
+            <input class="form__control" id="account__birthday" type="date" name="birthday" #if($user.birthday)value="${user.birthday}"#end tabindex="5">
             <p class="form__feedback"></p>
         </div>
         <div class="form__row">
             <label class="form__label" for="account__address">Address</label>
-            <input class="form__control" id="account__address" type="text" name="address" maxlength="255" tabindex="6">
+            <input class="form__control" id="account__address" type="text" name="address" #if($user.address)value="${user.address}"#end maxlength="255" tabindex="6">
             <p class="form__feedback"></p>
         </div>
         <div class="form__row">
             <label class="form__label" for="account__website">Website</label>
-            <input class="form__control" id="account__website" type="text" name="website" maxlength="255" tabindex="6">
+            <input class="form__control" id="account__website" type="text" name="website" #if($user.website)value="${user.website}"#end maxlength="255" tabindex="7">
             <p class="form__feedback"></p>
         </div>
         <div class="form__footer">
@@ -83,13 +84,19 @@
     const accountForm = document.querySelector(".account-form");
     applyValidation(accountForm, "first-name", e => e.value.length === 0 ? "Enter first name" : null);
     applyValidation(accountForm, "last-name", e => e.value.length === 0 ? "Enter last name" : null);
-    // applyValidation(accountForm, "gender", e => e.)
+    applyValidation(accountForm, "gender", e => ![...e.querySelectorAll("option")].map(o => o.value).includes(e.value) ? "Select a valid gender" : null);
     applyValidation(accountForm, "birthday", e => {
         if (e.value === "") {
             return null;
         }
-
         return validateDate(e.value) ? null : "Enter your date of birth";
+    });
+    applyValidation(accountForm, "address", e => null);
+    applyValidation(accountForm, "website", e => {
+        if (e.value === "") {
+            return null;
+        }
+        return (e.value.startsWith("http://") || e.value.startsWith("https://")) ? null : "URL must start with 'http://' or 'https://'";
     });
     applyFormValidation(accountForm);
 </script>

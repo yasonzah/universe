@@ -31,7 +31,7 @@ public final class CSRFFilter {
         String sessionCsrfToken = context.sessionAttribute(SessionKey.CSRF);
 
         if (sessionCsrfToken == null || !sessionCsrfToken.equals(csrfToken)) {
-            throw new CSRFTokenVerificationException("CSRF token is invalid");
+            throw new CSRFTokenVerificationException();
         }
     }
 

@@ -1,7 +1,9 @@
 package com.fluffy.universe.exceptions;
 
-public class CSRFTokenVerificationException extends RuntimeException {
-    public CSRFTokenVerificationException(String message) {
-        super(message);
+import io.javalin.http.HttpCode;
+
+public class CSRFTokenVerificationException extends HttpException {
+    public CSRFTokenVerificationException() {
+        super(HttpCode.BAD_REQUEST, "CSRF token is invalid");
     }
 }

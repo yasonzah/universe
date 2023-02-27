@@ -12,6 +12,8 @@ import org.sql2o.Connection;
 import java.sql.SQLException;
 
 public final class UserService {
+    private UserService() {}
+
     private static final int BCRYPT_STRENGTH = Configuration.getAsClass("application.bcryptStrength", Integer.class);
     private static final String INSERT_USER_SQL = "INSERT INTO User "
             + "(RoleID, FirstName, LastName, Email, Password, Gender, Birthday, Address, Website, ResetPasswordToken) VALUES "
@@ -21,13 +23,15 @@ public final class UserService {
             + "FirstName = :firstName, "
             + "LastName = :lastName, "
             + "Password = :password, "
+            + "Gender = :gender,"
             + "Birthday = :birthday, "
             + "Address = :address, "
             + "Website = :website, "
-            + "ResetPasswordToken = :resetPasswordToken";
+            + "ResetPasswordToken = :resetPasswordToken "
+            + "WHERE ID = :id";
     private static final String USER_BY_EMAIL_SQL = "SELECT * FROM User WHERE Email = :email";
     private static final String USER_BY_ID_SQL = "SELECT * FROM User WHERE ID = :id";
-    private static final String USER_BY_RESET_PASSWORD_TOKEN = "SELECT * FROM User WHERE ResetPasswordToken = :resetPasswordToken";
+    private static final String USER_BY_RESET_PASSWORD_TOKEN_SQL = "SELECT * FROM User WHERE ResetPasswordToken = :resetPasswordToken";
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(BCRYPT_STRENGTH);
 
     public static User getUserByEmail(String email) {
@@ -36,7 +40,7 @@ public final class UserService {
                     .addParameter("email", email)
                     .executeAndFetchFirst(User.class);
         } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR.getStatus(), "Problem with database connection: " + throwables);
+            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
         }
     }
 
@@ -46,27 +50,30 @@ public final class UserService {
                     .addParameter("id", id)
                     .executeAndFetchFirst(User.class);
         } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR.getStatus(), "Problem with database connection: " + throwables);
+            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
         }
     }
 
     public static User getUserByResetPasswordToken(String resetPasswordToken) {
         try (Connection connection = DataSource.getConnection()) {
-            return connection.createQuery(USER_BY_RESET_PASSWORD_TOKEN)
+            return connection.createQuery(USER_BY_RESET_PASSWORD_TOKEN_SQL)
                     .addParameter("resetPasswordToken", resetPasswordToken)
                     .executeAndFetchFirst(User.class);
         } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR.getStatus(), "Problem with database connection: " + throwables);
+            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
         }
     }
 
     public static void saveUser(User user) {
         try (Connection connection = DataSource.getConnection()) {
-            String query = user.getId() == null ? INSERT_USER_SQL : UPDATE_USER_SQL;
-            int id = connection.createQuery(query).bind(user).executeUpdate().getKey(Integer.class);
-            user.setId(id);
+            if (user.getId() == null) {
+                Integer id = connection.createQuery(INSERT_USER_SQL).bind(user).executeUpdate().getKey(Integer.class);
+                user.setId(id);
+            } else {
+                connection.createQuery(UPDATE_USER_SQL).bind(user).executeUpdate();
+            }
         } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR.getStatus(), "Problem with database connection: " + throwables);
+            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
         }
     }
 

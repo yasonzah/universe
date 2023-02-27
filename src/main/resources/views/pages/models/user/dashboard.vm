@@ -6,32 +6,23 @@
         <input type="hidden" name="_csrf" value="${csrf}">
         <div class="dashboard__header">
             <h1 class="dashboard__heading">Dashboard</h1>
-            <a class="dashboard__button button button--primary" href="/edit-post">New post</a>
         </div>
         <table class="dashboard__table">
             <thead class="dashboard__thead">
-            <tr class="dashboard__tr">
-                <th class="dashboard__th">Title</th>
-                <th class="dashboard__th">Comments</th>
-                <th class="dashboard__th">Publication Date</th>
-            </tr>
+                <tr class="dashboard__tr">
+                    <th class="dashboard__th">Title</th>
+                    <th class="dashboard__th">Comments</th>
+                    <th class="dashboard__th">Publication Date</th>
+                </tr>
             </thead>
             <tbody class="dashboard__tbody">
-            <tr class="dashboard__tr">
-                <td class="dashboard__td">Something title</td>
-                <td class="dashboard__td">10</td>
-                <td class="dashboard__td">February 19, 2023</td>
-            </tr>
-            <tr class="dashboard__tr">
-                <td class="dashboard__td">Something title</td>
-                <td class="dashboard__td">10</td>
-                <td class="dashboard__td">February 19, 2023</td>
-            </tr>
-            <tr class="dashboard__tr">
-                <td class="dashboard__td">Something title</td>
-                <td class="dashboard__td">10</td>
-                <td class="dashboard__td">February 19, 2023</td>
-            </tr>
+                #foreach($post in $posts)
+                    <tr class="dashboard__tr">
+                        <td class="dashboard__td"><a href="/posts/${post.get("id")}">${post.get("title")}</a></td>
+                        <td class="dashboard__td">${post.get("commentcount")}</td>
+                        <td class="dashboard__td">${LocalDateTime.parse($post.get("publicationdatetime")).format($DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", $Locale.forLanguageTag("en")))}</td>
+                    </tr>
+                #end
             </tbody>
         </table>
     </div>

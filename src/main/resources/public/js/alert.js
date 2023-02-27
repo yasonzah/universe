@@ -22,4 +22,10 @@ if (serverData["alert"]) {
         alert.classList.remove("alert--visible");
     }));
     alert.classList.add("alert--visible");
+    window.addEventListener("keydown", function listener(event) {
+        if (event.key === "Escape") {
+            alert.classList.remove("alert--visible");
+            window.removeEventListener("keydown", listener);
+        }
+    });
 }

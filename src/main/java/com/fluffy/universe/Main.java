@@ -1,15 +1,12 @@
 package com.fluffy.universe;
 
-import com.fluffy.universe.controllers.ExceptionHandlerController;
-import com.fluffy.universe.controllers.HomeController;
-import com.fluffy.universe.controllers.PostController;
-import com.fluffy.universe.controllers.UserController;
+import com.fluffy.universe.controllers.*;
 import com.fluffy.universe.exceptions.CSRFTokenVerificationException;
 import com.fluffy.universe.exceptions.HttpException;
 import com.fluffy.universe.middleware.CSRFFilter;
 import com.fluffy.universe.middleware.ModelFilter;
-import com.fluffy.universe.models.User;
 import com.fluffy.universe.models.Role;
+import com.fluffy.universe.models.User;
 import com.fluffy.universe.utils.Configuration;
 import com.fluffy.universe.utils.SessionUtils;
 import io.javalin.Javalin;
@@ -47,20 +44,20 @@ public class Main {
 
             Configuration.load(new File(args[0]));
         });
-
         ExceptionHandlerController exceptionHandlerController = new ExceptionHandlerController(application);
 
         application
                 .before(ModelFilter::initializeModel)
                 .before(CSRFFilter::verifyToken)
                 .before(CSRFFilter::generateToken)
-                .exception(CSRFTokenVerificationException.class, exceptionHandlerController::handleCSRFTokenVerificationException)
                 .exception(HttpException.class, exceptionHandlerController::handleHttpException)
-                .error(404, exceptionHandlerController::handlePageNotFoundError);
+                .error(404, exceptionHandlerController::handlePageNotFoundError)
+                .error(500, exceptionHandlerController::handleInternalServerError);
 
         new HomeController(application);
         new UserController(application);
         new PostController(application);
+        new CommentController(application);
         application.start(7000);
     }
 }

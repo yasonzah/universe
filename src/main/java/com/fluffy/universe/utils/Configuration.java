@@ -10,8 +10,10 @@ import java.util.Properties;
 
 public final class Configuration {
     private static final List<String> parameters = List.of(
-            "application.host", "application.port", "application.bcryptStrength",
-            "database.filename");
+            "application.url", "application.host", "application.port", "application.bcryptStrength",
+            "database.filename",
+            "mail.from", "mail.user", "mail.password",
+            "mail.host", "mail.port", "mail.ssl", "mail.auth");
     private static final List<String> pathParameters = List.of("database.filename");
     private static final Map<String, String> values = new HashMap<>();
 

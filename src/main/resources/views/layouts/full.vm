@@ -1,3 +1,7 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
+#* @vtlvariable name="templatePageName" type="java.lang.String" *#
+#* @vtlvariable name="serverData" type="java.lang.String" *#
+#* @vtlvariable name="user" type="com.fluffy.universe.models.User" *#
 #macro(layoutFull)
 <!doctype html>
 <html lang="en">

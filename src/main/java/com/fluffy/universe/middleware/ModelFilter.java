@@ -27,9 +27,6 @@ public final class ModelFilter {
         model.put(ModelKey.CSRF, context.sessionAttribute(SessionKey.CSRF));
         model.put(ModelKey.USER, context.sessionAttribute(SessionKey.USER));
         model.put(ModelKey.SERVER_DATA, serverData);
-
-        // Preloaded classes
-        model.put("Math", Math.class);
         model.put("VelocityHelper", VelocityHelper.class);
     }
 }

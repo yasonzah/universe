@@ -1,6 +1,4 @@
-#* @vtlvariable name="LocalDateTime" type="java.time.LocalDateTime" *#
-#* @vtlvariable name="LocalDateTime" type="java.time.format.DateTimeFormatter" *#
-#* @vtlvariable name="Locale" type="java.util.Locale" *#
+#* @vtlvariable name="VelocityHelper" type="com.fluffy.universe.utils.VelocityHelper" *#
 #* @vtlvariable name="user" type="com.fluffy.universe.models.User" *#
 #* @vtlvariable name="post" type="java.util.Map" *#
 #* @vtlvariable name="posts" type="java.util.List" *#
@@ -26,7 +24,7 @@
                 <div class="card__footer">
                     <img class="card__avatar" src="/images/user.png" alt="Avatar">
                     <p class="card__author">${post.get("user.firstname")} ${post.get("user.lastname")}</p>
-                    <p class="card__date" title="${LocalDateTime.parse($post.get("post.publicationdatetime")).format($DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}">${LocalDateTime.parse($post.get("post.publicationdatetime")).format($DateTimeFormatter.ofPattern("MMMM d, yyyy", $Locale.forLanguageTag("en")))}</p>
+                    <p class="card__date" title="$VelocityHelper.getDateTime($post.get("post.publicationdatetime"))">$VelocityHelper.getDateTime($post.get("post.publicationdatetime"))</p>
                 </div>
             </div>
         #end

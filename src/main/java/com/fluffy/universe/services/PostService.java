@@ -21,7 +21,6 @@ public final class PostService {
             + "Title = :title, "
             + "Description = :description, "
             + "PublicationDateTime = :publicationDateTime";
-    private static final String POST_BY_ID_SQL = "SELECT * FROM Post WHERE ID = :id";
     private static final String POSTS_BY_USER_ID_SQL = "SELECT * FROM Post WHERE UserID = :userId";
     private static final String POSTS_SQL = "SELECT * FROM Post";
     private static final String USER_POSTS_SQL = "SELECT "
@@ -50,16 +49,6 @@ public final class PostService {
             + "LEFT JOIN Comment ON Post.ID = Comment.PostID "
             + "GROUP BY Post.ID, Post.Title, Post.PublicationDateTime "
             + "ORDER BY Post.PublicationDateTime DESC";
-
-    public static Post getPostById(int id) {
-        try (Connection connection = DataSource.getConnection()) {
-            return connection.createQuery(POST_BY_ID_SQL)
-                    .addParameter("id", id)
-                    .executeAndFetchFirst(Post.class);
-        } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
-        }
-    }
 
     public static List<Post> getPosts() {
         try (Connection connection = DataSource.getConnection()) {
@@ -97,16 +86,6 @@ public final class PostService {
                 return null;
             }
             return table.get(0);
-        } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
-        }
-    }
-
-    public static List<Post> getPostsByUserId(int userId) {
-        try (Connection connection = DataSource.getConnection()) {
-            return connection.createQuery(POSTS_BY_USER_ID_SQL)
-                    .addParameter("userId", userId)
-                    .executeAndFetch(Post.class);
         } catch (SQLException throwables) {
             throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
         }

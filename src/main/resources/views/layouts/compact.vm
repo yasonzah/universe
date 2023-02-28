@@ -1,3 +1,5 @@
+#* @vtlvariable name="templatePageName" type="java.lang.String" *#
+#* @vtlvariable name="serverData" type="java.lang.String" *#
 #macro(layoutCompact)
 <!doctype html>
 <html lang="en">

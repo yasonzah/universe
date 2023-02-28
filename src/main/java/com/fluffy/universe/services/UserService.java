@@ -30,7 +30,6 @@ public final class UserService {
             + "ResetPasswordToken = :resetPasswordToken "
             + "WHERE ID = :id";
     private static final String USER_BY_EMAIL_SQL = "SELECT * FROM User WHERE Email = :email";
-    private static final String USER_BY_ID_SQL = "SELECT * FROM User WHERE ID = :id";
     private static final String USER_BY_RESET_PASSWORD_TOKEN_SQL = "SELECT * FROM User WHERE ResetPasswordToken = :resetPasswordToken";
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(BCRYPT_STRENGTH);
 
@@ -38,16 +37,6 @@ public final class UserService {
         try (Connection connection = DataSource.getConnection()) {
             return connection.createQuery(USER_BY_EMAIL_SQL)
                     .addParameter("email", email)
-                    .executeAndFetchFirst(User.class);
-        } catch (SQLException throwables) {
-            throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);
-        }
-    }
-
-    public static User getUserById(int id) {
-        try (Connection connection = DataSource.getConnection()) {
-            return connection.createQuery(USER_BY_ID_SQL)
-                    .addParameter("id", id)
                     .executeAndFetchFirst(User.class);
         } catch (SQLException throwables) {
             throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Problem with database connection: " + throwables);

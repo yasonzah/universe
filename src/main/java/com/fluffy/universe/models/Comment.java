@@ -1,5 +1,8 @@
 package com.fluffy.universe.models;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Comment {
     private Integer id;
     private Integer parentId;
@@ -54,5 +57,9 @@ public class Comment {
 
     public void setPublicationDateTime(String publicationDateTime) {
         this.publicationDateTime = publicationDateTime;
+    }
+
+    public void setPublicationDateTime(LocalDateTime publicationDateTime) {
+        this.publicationDateTime = publicationDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     }
 }

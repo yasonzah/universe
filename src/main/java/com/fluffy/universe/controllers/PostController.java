@@ -14,9 +14,7 @@ import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 public class PostController extends Controller {
@@ -47,9 +45,6 @@ public class PostController extends Controller {
         Map<String, Object> model = SessionUtils.getCurrentModel(context);
         model.put("post", userPost);
         model.put("comments", comments);
-        model.put("LocalDateTime", LocalDateTime.class);
-        model.put("DateTimeFormatter", DateTimeFormatter.class);
-        model.put("Locale", Locale.class);
 
         render(context, "/views/pages/models/post/show.vm");
     }
@@ -63,7 +58,7 @@ public class PostController extends Controller {
         post.setUserId(SessionUtils.getCurrentUser(context).getId());
         post.setTitle(SecurityUtils.escape(title));
         post.setDescription(SecurityUtils.escape(description));
-        post.setPublicationDateTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        post.setPublicationDateTime(LocalDateTime.now());
         PostService.savePost(post);
 
         serverData.setAlertWindow("Congratulations!", "Blog post published successfully.", AlertType.SUCCESS);

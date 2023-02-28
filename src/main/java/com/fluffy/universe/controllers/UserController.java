@@ -3,25 +3,18 @@ package com.fluffy.universe.controllers;
 import com.fluffy.universe.exceptions.HttpException;
 import com.fluffy.universe.models.Role;
 import com.fluffy.universe.models.User;
+import com.fluffy.universe.services.MailService;
 import com.fluffy.universe.services.PostService;
 import com.fluffy.universe.services.UserService;
-import com.fluffy.universe.utils.AlertType;
-import com.fluffy.universe.utils.ErrorBag;
-import com.fluffy.universe.utils.SecurityUtils;
-import com.fluffy.universe.utils.ServerData;
-import com.fluffy.universe.utils.SessionKey;
-import com.fluffy.universe.utils.SessionUtils;
-import com.fluffy.universe.utils.ValidationUtils;
+import com.fluffy.universe.utils.*;
 import com.google.common.base.Strings;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
+import javax.mail.MessagingException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -142,9 +135,6 @@ public class UserController extends Controller {
     public void dashboardPage(Context context) {
         Map<String, Object> model = SessionUtils.getCurrentModel(context);
         model.put("posts", PostService.getPostsWithCommentCount());
-        model.put("LocalDateTime", LocalDateTime.class);
-        model.put("DateTimeFormatter", DateTimeFormatter.class);
-        model.put("Locale", Locale.class);
         render(context, "/views/pages/models/user/dashboard.vm");
     }
 
@@ -229,6 +219,11 @@ public class UserController extends Controller {
             String resetPasswordToken = UUID.randomUUID().toString();
             user.setResetPasswordToken(resetPasswordToken);
             UserService.saveUser(user);
+            try {
+                MailService.sendResetLink(user);
+            } catch (MessagingException e) {
+                throw new HttpException(HttpCode.INTERNAL_SERVER_ERROR, "Failed to send email");
+            }
         }
 
         serverData.setAlertWindow("Success!", "We have sent you an email with instructions on how to reset your password.", AlertType.SUCCESS);

@@ -1,3 +1,4 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Create post")
 #@layoutFull()

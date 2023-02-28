@@ -3,6 +3,9 @@ package com.fluffy.universe.utils;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public final class VelocityHelper {
     private VelocityHelper() {}
@@ -27,6 +30,10 @@ public final class VelocityHelper {
     }
 
     public static String makeMultiline(String input) {
-        return input.replace("\n", "<br>");
+        return input.trim().replace("\n", "<br>");
+    }
+
+    public static String getDateTime(String timestamp) {
+        return LocalDateTime.parse(timestamp).format(DateTimeFormatter.ofPattern("MMMM dd, yyyy HH:mm:ss", Locale.ENGLISH));
     }
 }

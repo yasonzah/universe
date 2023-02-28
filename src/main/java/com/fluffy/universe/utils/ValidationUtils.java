@@ -1,5 +1,8 @@
 package com.fluffy.universe.utils;
 
+import com.fluffy.universe.exceptions.HttpException;
+import io.javalin.http.HttpCode;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,6 +37,14 @@ public final class ValidationUtils {
             }
         } else {
             return false;
+        }
+    }
+
+    public static void validateParametersPresence(Object... parameters) {
+        for (Object parameter : parameters) {
+            if (parameter == null) {
+                throw new HttpException(HttpCode.BAD_REQUEST);
+            }
         }
     }
 }

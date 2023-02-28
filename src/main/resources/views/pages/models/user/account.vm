@@ -1,3 +1,5 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
+#* @vtlvariable name="user" type="com.fluffy.universe.models.User" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Account")
 #@layoutFull()
@@ -7,7 +9,7 @@
         <input type="hidden" name="_method" value="PUT">
         <div class="account-form__header form__header">
             <h1 class="account-form__heading form__heading">Account</h1>
-            <img class="account-form__avatar" src="images/user.png" alt="Avatar">
+            <img class="account-form__avatar" src="/images/user.png" alt="Avatar">
         </div>
         <div class="form__row form__row--with-columns">
             <div class="form__column">

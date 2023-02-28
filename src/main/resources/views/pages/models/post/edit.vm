@@ -1,3 +1,5 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
+#* @vtlvariable name="post" type="com.fluffy.universe.models.Post" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Edit post")
 #@layoutFull()

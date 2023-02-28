@@ -15,9 +15,6 @@ public final class DataSource {
 
     static {
         dataSourceConfiguration.setJdbcUrl(String.format("jdbc:sqlite:/%s", Configuration.get("database.filename")));
-//        dataSourceConfiguration.addDataSourceProperty("cachePrepStmts", Configuration.get("database.cachePrepStmts"));
-//        dataSourceConfiguration.addDataSourceProperty("prepStmtCacheSize", Configuration.get("database.prepStmtCacheSize"));
-//        dataSourceConfiguration.addDataSourceProperty("prepStmtCacheSqlLimit", Configuration.get("database.prepStmtCacheSqlLimit"));
         dataSource = new Sql2o(new HikariDataSource(dataSourceConfiguration));
     }
 

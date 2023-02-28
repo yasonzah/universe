@@ -1,3 +1,6 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
+#* @vtlvariable name="posts" type="java.util.List" *#
+#* @vtlvariable name="VelocityHelper" type="com.fluffy.universe.utils.VelocityHelper" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Dashboard")
 #@layoutFull()
@@ -20,7 +23,7 @@
                     <tr class="dashboard__tr">
                         <td class="dashboard__td"><a href="/posts/${post.get("id")}">${post.get("title")}</a></td>
                         <td class="dashboard__td">${post.get("commentcount")}</td>
-                        <td class="dashboard__td">${LocalDateTime.parse($post.get("publicationdatetime")).format($DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", $Locale.forLanguageTag("en")))}</td>
+                        <td class="dashboard__td">$VelocityHelper.getDateTime($post.get("publicationdatetime"))</td>
                     </tr>
                 #end
             </tbody>

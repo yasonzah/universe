@@ -1,8 +1,9 @@
-#* @vtlvariable name="LocalDateTime" type="java.time.LocalDateTime" *#
-#* @vtlvariable name="LocalDateTime" type="java.time.format.DateTimeFormatter" *#
-#* @vtlvariable name="Locale" type="java.util.Locale" *#
-#* @vtlvariable name="post" type="com.fluffy.universe.models.Post" *#
+#* @vtlvariable name="csrf" type="java.lang.String" *#
+#* @vtlvariable name="VelocityHelper" type="com.fluffy.universe.utils.VelocityHelper" *#
+#* @vtlvariable name="user" type="java.util.Map" *#
+#* @vtlvariable name="post" type="java.util.Map" *#
 #* @vtlvariable name="comments" type="java.util.Map" *#
+#* @vtlvariable name="comment" type="java.util.Map" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = "Post")
 #@layoutFull()
@@ -14,12 +15,12 @@
                     <img class="post__avatar" src="/images/user.png" alt="">
                     <div class="post__about">
                         <div class="post__author">${post.get("user.firstname")} ${post.get("user.lastname")}</div>
-                        <div class="post__date" title="${LocalDateTime.parse($post.get("post.publicationdatetime")).format($DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}">${LocalDateTime.parse($post.get("post.publicationdatetime")).format($DateTimeFormatter.ofPattern("MMMM d, yyyy", $Locale.forLanguageTag("en")))}</div>
+                        <div class="post__date">$VelocityHelper.getDateTime($post.get("post.publicationdatetime"))</div>
                     </div>
                 </div>
                 <h1 class="post__heading">${post.get("post.title")}</h1>
             </div>
-            <p class="post__description">${post.get("post.description")}</p>
+            <p class="post__description">$VelocityHelper.makeMultiline($post.get("post.description"))</p>
             <div class="post__footer">
 ##                <button class="post__button button">Likes [10]</button>
 ##                <button class="post__button button">Comments [2]</button>
@@ -44,7 +45,7 @@
                         #if($user)
                             <button class="comment__button button">Reply</button>
                         #end
-                        <div class="comment__date" title="${LocalDateTime.parse($comment.get("comment.publicationdatetime")).format($DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}">${LocalDateTime.parse($comment.get("comment.publicationdatetime")).format($DateTimeFormatter.ofPattern("MMMM d, yyyy", $Locale.forLanguageTag("en")))}</div>
+                        <div class="comment__date">$VelocityHelper.getDateTime($comment.get("comment.publicationdatetime"))</div>
                     </div>
                 </div>
             #end

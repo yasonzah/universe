@@ -1,3 +1,4 @@
+#* @vtlvariable name="csrf" type="java.lang.String" *#
 #parse("/views/layouts/compact.vm")
 #set($templatePageName = "Sign Up")
 #@layoutCompact()

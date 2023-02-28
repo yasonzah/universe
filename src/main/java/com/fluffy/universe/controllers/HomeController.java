@@ -5,12 +5,8 @@ import com.fluffy.universe.services.PostService;
 import com.fluffy.universe.utils.SessionUtils;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-import org.apache.http.client.utils.URIBuilder;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 public class HomeController extends Controller {
@@ -43,10 +39,6 @@ public class HomeController extends Controller {
         Map<String, Object> model = SessionUtils.getCurrentModel(context);
         List<Map<String, Object>> posts = PostService.getUserPosts(pageNumber, pageSize);
         model.put("posts", posts);
-        model.put("LocalDateTime", LocalDateTime.class);
-        model.put("DateTimeFormatter", DateTimeFormatter.class);
-        model.put("Locale", Locale.class);
-
         model.put("paginationRecordCount", postCount);
         model.put("paginationPageSize", pageSize);
         model.put("paginationCurrentPage", pageNumber);

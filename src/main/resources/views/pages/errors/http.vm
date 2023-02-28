@@ -1,3 +1,7 @@
+#* @vtlvariable name="errorPageTitle" type="java.lang.String" *#
+#* @vtlvariable name="errorCode" type="java.lang.Integer" *#
+#* @vtlvariable name="errorHeading" type="java.lang.String" *#
+#* @vtlvariable name="errorDescription" type="java.lang.String" *#
 #parse("/views/layouts/full.vm")
 #set($templatePageName = $errorPageTitle)
 #@layoutFull()

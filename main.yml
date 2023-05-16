@@ -1,0 +1,58 @@
+name: CI Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout репозиторію
+        uses: actions/checkout@v2
+
+      - name: Setup JDK
+        run: |
+          # Команди для налаштування JDK
+
+      - name: Build project
+        run: |
+          # Команди для збірки проекту
+
+      - name: Run unit tests
+        run: |
+          # Команди для запуску модульних тестів
+
+  code_quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout репозиторію
+        uses: actions/checkout@v2
+
+      - name: Setup code analysis tools
+        run: |
+          # Команди для налаштування інструментів аналізу коду
+
+      - name: Run code analysis
+        run: |
+          # Команди для запуску аналізу коду
+
+      - name: Generate code coverage report
+        run: |
+          # Команди для генерації звіту про покриття коду
+
+  deployment:
+    runs-on: ubuntu-latest
+    if: false # Умова, яка пропускає виконання цієї задачі
+    steps:
+      - name: Checkout репозиторію
+        uses: actions/checkout@v2
+
+      # Додайте інші кроки для розгортання, які потрібні
+
+summary: 
+  total: 3 jobs
+  succeeded: 2 jobs
+  failed: 0 jobs
+  skipped: 1 job

@@ -1,0 +1,79 @@
+package com.fluffy.universe.stepdefinitions;
+
+import com.fluffy.universe.models.Post;
+import com.fluffy.universe.models.PostManager;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import static org.junit.Assert.*;
+
+public class PostSteps {
+    private Post post;
+    private PostManager postManager;
+
+    @Given("a user has information about the post:")
+    public void userHasPostInformation(io.cucumber.datatable.DataTable dataTable) {
+        java.util.List<java.util.Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+        java.util.Map<String, String> postInfo = rows.get(0);
+
+        post = new Post();
+        post.setId(Integer.parseInt(postInfo.get("id")));
+        post.setUserId(Integer.parseInt(postInfo.get("userId")));
+        post.setTitle(postInfo.get("title"));
+        post.setDescription(postInfo.get("description"));
+        post.setPublicationDateTime(postInfo.get("publicationDateTime"));
+
+        postManager = new PostManager();
+    }
+
+    @When("the user creates a new post")
+    public void userCreatesNewPost() {
+        postManager.createPost(post);
+    }
+
+    @Then("a post with id {int} should be created")
+    public void postShouldBeCreated(int postId) {
+        Post createdPost = postManager.getPostById(postId);
+        assertNotNull(createdPost);
+    }
+
+    @When("the user updates the post with id {int}:")
+    public void userUpdatesPost(int postId, io.cucumber.datatable.DataTable dataTable) {
+        java.util.List<java.util.Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
+        java.util.Map<String, String> updatedPostInfo = rows.get(0);
+
+        Post existingPost = postManager.getPostById(postId);
+        assertNotNull(existingPost);
+
+        existingPost.setTitle(updatedPostInfo.get("title"));
+        existingPost.setDescription(updatedPostInfo.get("description"));
+        existingPost.setPublicationDateTime(updatedPostInfo.get("publicationDateTime"));
+
+        postManager.updatePost(existingPost);
+    }
+
+    @Then("the post with id {int} should be updated")
+    public void postShouldBeUpdated(int postId) {
+        Post updatedPost = postManager.getPostById(postId);
+        assertNotNull(updatedPost);
+    }
+
+    @Given("a post exists with id {int}")
+    public void postExists(int postId) {
+        post = postManager.getPostById(postId);
+        assertNotNull(post);
+    }
+
+    @When("the user deletes the post with id {int}")
+    public void userDeletesPost(int postId) {
+        postManager.deletePost(postId);
+    }
+
+    @Then("the post with id {int} should be deleted")
+    public void postShouldBeDeleted(int postId) {
+        Post deletedPost = postManager.getPostById(postId);
+        assertNull(deletedPost);
+    }
+}

@@ -1,4 +1,4 @@
-package com.fluffy.universe.models;
+package com.fluffy.universe.services;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;

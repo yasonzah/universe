@@ -1,0 +1,1124 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">\
+  <hashTree>\
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">\
+      <stringProp name="TestPlan.comments"></stringProp>\
+      <boolProp name="TestPlan.functional_mode">false</boolProp>\
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>\
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>\
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+        <collectionProp name="Arguments.arguments"/>\
+      </elementProp>\
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>\
+    </TestPlan>\
+    <hashTree>\
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">\
+        <boolProp name="ResultCollector.error_logging">false</boolProp>\
+        <objProp>\
+          <name>saveConfig</name>\
+          <value class="SampleSaveConfiguration">\
+            <time>true</time>\
+            <latency>true</latency>\
+            <timestamp>true</timestamp>\
+            <success>true</success>\
+            <label>true</label>\
+            <code>true</code>\
+            <message>true</message>\
+            <threadName>true</threadName>\
+            <dataType>true</dataType>\
+            <encoding>false</encoding>\
+            <assertions>true</assertions>\
+            <subresults>true</subresults>\
+            <responseData>false</responseData>\
+            <samplerData>false</samplerData>\
+            <xml>false</xml>\
+            <fieldNames>true</fieldNames>\
+            <responseHeaders>false</responseHeaders>\
+            <requestHeaders>false</requestHeaders>\
+            <responseDataOnError>false</responseDataOnError>\
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+            <assertionsResultsToSave>0</assertionsResultsToSave>\
+            <bytes>true</bytes>\
+            <sentBytes>true</sentBytes>\
+            <url>true</url>\
+            <threadCounts>true</threadCounts>\
+            <idleTime>true</idleTime>\
+            <connectTime>true</connectTime>\
+          </value>\
+        </objProp>\
+        <stringProp name="filename"></stringProp>\
+      </ResultCollector>\
+      <hashTree/>\
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">\
+        <boolProp name="ResultCollector.error_logging">false</boolProp>\
+        <objProp>\
+          <name>saveConfig</name>\
+          <value class="SampleSaveConfiguration">\
+            <time>true</time>\
+            <latency>true</latency>\
+            <timestamp>true</timestamp>\
+            <success>true</success>\
+            <label>true</label>\
+            <code>true</code>\
+            <message>true</message>\
+            <threadName>true</threadName>\
+            <dataType>true</dataType>\
+            <encoding>false</encoding>\
+            <assertions>true</assertions>\
+            <subresults>true</subresults>\
+            <responseData>false</responseData>\
+            <samplerData>false</samplerData>\
+            <xml>false</xml>\
+            <fieldNames>true</fieldNames>\
+            <responseHeaders>false</responseHeaders>\
+            <requestHeaders>false</requestHeaders>\
+            <responseDataOnError>false</responseDataOnError>\
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+            <assertionsResultsToSave>0</assertionsResultsToSave>\
+            <bytes>true</bytes>\
+            <sentBytes>true</sentBytes>\
+            <url>true</url>\
+            <threadCounts>true</threadCounts>\
+            <idleTime>true</idleTime>\
+            <connectTime>true</connectTime>\
+          </value>\
+        </objProp>\
+        <stringProp name="filename"></stringProp>\
+      </ResultCollector>\
+      <hashTree/>\
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="First" enabled="true">\
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>\
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">\
+          <boolProp name="LoopController.continue_forever">false</boolProp>\
+          <stringProp name="LoopController.loops">1</stringProp>\
+        </elementProp>\
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>\
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>\
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>\
+        <stringProp name="ThreadGroup.duration"></stringProp>\
+        <stringProp name="ThreadGroup.delay"></stringProp>\
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>\
+      </ThreadGroup>\
+      <hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Sign In" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;email&quot;: &quot;test@test&quot;,&#xd;\
+  &quot;password&quot;: &quot;test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/accounts/login</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.authorizationToken</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>\
+            <stringProp name="Scope.variable"></stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get All Posts" enabled="true">\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+            <collectionProp name="Arguments.arguments"/>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts</stringProp>\
+          <stringProp name="HTTPSampler.method">GET</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">postId</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>\
+            <stringProp name="JSONPostProcessor.defaultValues">Err</stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get one post" enabled="true">\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+            <collectionProp name="Arguments.arguments"/>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts/$\{postId\}</stringProp>\
+          <stringProp name="HTTPSampler.method">GET</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">\
+            <collectionProp name="Asserion.test_strings">\
+              <stringProp name="3355">id</stringProp>\
+              <stringProp name="1028554796">creator</stringProp>\
+            </collectionProp>\
+            <stringProp name="Assertion.custom_message"></stringProp>\
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>\
+            <boolProp name="Assertion.assume_success">false</boolProp>\
+            <intProp name="Assertion.test_type">16</intProp>\
+          </ResponseAssertion>\
+          <hashTree/>\
+        </hashTree>\
+      </hashTree>\
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Second" enabled="true">\
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>\
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">\
+          <boolProp name="LoopController.continue_forever">false</boolProp>\
+          <stringProp name="LoopController.loops">1</stringProp>\
+        </elementProp>\
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>\
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>\
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>\
+        <stringProp name="ThreadGroup.duration"></stringProp>\
+        <stringProp name="ThreadGroup.delay"></stringProp>\
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>\
+      </ThreadGroup>\
+      <hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Sign In" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;email&quot;: &quot;test@test&quot;,&#xd;\
+  &quot;password&quot;: &quot;test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/accounts/login</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.authorizationToken</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>\
+            <stringProp name="Scope.variable"></stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get All Posts" enabled="true">\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+            <collectionProp name="Arguments.arguments"/>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts</stringProp>\
+          <stringProp name="HTTPSampler.method">GET</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">postId</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>\
+            <stringProp name="JSONPostProcessor.defaultValues">Err</stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get one post" enabled="true">\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+            <collectionProp name="Arguments.arguments"/>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts/$\{postId\}</stringProp>\
+          <stringProp name="HTTPSampler.method">GET</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Comment Post" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;commentary&quot;: &quot;testComment&quot;,&#xd;\
+  &quot;postId&quot;: &quot;$\{postId\}&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts/commentary</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">postId</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>\
+            <stringProp name="JSONPostProcessor.defaultValues">Err</stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+      </hashTree>\
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Third" enabled="true">\
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>\
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">\
+          <boolProp name="LoopController.continue_forever">false</boolProp>\
+          <stringProp name="LoopController.loops">1</stringProp>\
+        </elementProp>\
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>\
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>\
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>\
+        <stringProp name="ThreadGroup.duration"></stringProp>\
+        <stringProp name="ThreadGroup.delay"></stringProp>\
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>\
+      </ThreadGroup>\
+      <hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Sign In" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;email&quot;: &quot;test@test&quot;,&#xd;\
+  &quot;password&quot;: &quot;test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/accounts/login</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.authorizationToken</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>\
+            <stringProp name="Scope.variable"></stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Post" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;theme&quot;: &quot;test&quot;,&#xd;\
+  &quot;content&quot;: &quot;test test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/posts</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">\
+            <collectionProp name="Asserion.test_strings">\
+              <stringProp name="3556498">test</stringProp>\
+              <stringProp name="-1238303904">test test</stringProp>\
+              <stringProp name="0"></stringProp>\
+            </collectionProp>\
+            <stringProp name="Assertion.custom_message"></stringProp>\
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>\
+            <boolProp name="Assertion.assume_success">false</boolProp>\
+            <intProp name="Assertion.test_type">16</intProp>\
+          </ResponseAssertion>\
+          <hashTree/>\
+        </hashTree>\
+      </hashTree>\
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Fourth" enabled="true">\
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>\
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">\
+          <boolProp name="LoopController.continue_forever">false</boolProp>\
+          <stringProp name="LoopController.loops">1</stringProp>\
+        </elementProp>\
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>\
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>\
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>\
+        <stringProp name="ThreadGroup.duration"></stringProp>\
+        <stringProp name="ThreadGroup.delay"></stringProp>\
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>\
+      </ThreadGroup>\
+      <hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Sign In" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;email&quot;: &quot;test@test&quot;,&#xd;\
+  &quot;password&quot;: &quot;test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/accounts/login</stringProp>\
+          <stringProp name="HTTPSampler.method">POST</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">\
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>\
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.authorizationToken</stringProp>\
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>\
+            <stringProp name="Scope.variable"></stringProp>\
+          </JSONPostProcessor>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get User Info" enabled="true">\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">\
+            <collectionProp name="Arguments.arguments"/>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/user</stringProp>\
+          <stringProp name="HTTPSampler.method">GET</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+        </hashTree>\
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Patch User Data" enabled="true">\
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>\
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">\
+            <collectionProp name="Arguments.arguments">\
+              <elementProp name="" elementType="HTTPArgument">\
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>\
+                <stringProp name="Argument.value">\{&#xd;\
+  &quot;email&quot;: &quot;test@test&quot;,&#xd;\
+  &quot;username&quot;: &quot;test&quot;&#xd;\
+\}</stringProp>\
+                <stringProp name="Argument.metadata">=</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </elementProp>\
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>\
+          <stringProp name="HTTPSampler.port">8080</stringProp>\
+          <stringProp name="HTTPSampler.protocol"></stringProp>\
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>\
+          <stringProp name="HTTPSampler.path">/api/user/data</stringProp>\
+          <stringProp name="HTTPSampler.method">PATCH</stringProp>\
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>\
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>\
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>\
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>\
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>\
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>\
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>\
+        </HTTPSamplerProxy>\
+        <hashTree>\
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">\
+            <collectionProp name="HeaderManager.headers">\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">content-type</stringProp>\
+                <stringProp name="Header.value">application/json</stringProp>\
+              </elementProp>\
+              <elementProp name="" elementType="Header">\
+                <stringProp name="Header.name">Authorization</stringProp>\
+                <stringProp name="Header.value">Bearer $\{token\}</stringProp>\
+              </elementProp>\
+            </collectionProp>\
+          </HeaderManager>\
+          <hashTree/>\
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">\
+            <boolProp name="ResultCollector.error_logging">false</boolProp>\
+            <objProp>\
+              <name>saveConfig</name>\
+              <value class="SampleSaveConfiguration">\
+                <time>true</time>\
+                <latency>true</latency>\
+                <timestamp>true</timestamp>\
+                <success>true</success>\
+                <label>true</label>\
+                <code>true</code>\
+                <message>true</message>\
+                <threadName>true</threadName>\
+                <dataType>true</dataType>\
+                <encoding>false</encoding>\
+                <assertions>true</assertions>\
+                <subresults>true</subresults>\
+                <responseData>false</responseData>\
+                <samplerData>false</samplerData>\
+                <xml>false</xml>\
+                <fieldNames>true</fieldNames>\
+                <responseHeaders>false</responseHeaders>\
+                <requestHeaders>false</requestHeaders>\
+                <responseDataOnError>false</responseDataOnError>\
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\
+                <assertionsResultsToSave>0</assertionsResultsToSave>\
+                <bytes>true</bytes>\
+                <sentBytes>true</sentBytes>\
+                <url>true</url>\
+                <threadCounts>true</threadCounts>\
+                <idleTime>true</idleTime>\
+                <connectTime>true</connectTime>\
+              </value>\
+            </objProp>\
+            <stringProp name="filename"></stringProp>\
+          </ResultCollector>\
+          <hashTree/>\
+        </hashTree>\
+      </hashTree>\
+    </hashTree>\
+  </hashTree>\
+</jmeterTestPlan>}
